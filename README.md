@@ -28,6 +28,7 @@
 - Spring MVC
 - Spring Data JPA
 - Spring Security
+- OAuth2.0
 
 ### Infrastructure
 - MySQL
