@@ -56,6 +56,7 @@ public class CommunityService {
                 .role(role)
                 .nickname(member.getNickname())
                 .profileImage(member.getProfileImage())
+                .userId(userId)
                 .build();
 
         CommunityMember newCommunityMember = communityMemberRepository.save(communityMember);
@@ -63,11 +64,11 @@ public class CommunityService {
         return newCommunityMember.getId();
     }
 
-    public List<CommunityResponseDto> showCommunity(Long userId){
+    public List<CommunityResponseDto> getAllCommunity(Long userId){
         List<CommunityMember> members = communityMemberRepository.findByUserId(userId);
         List<CommunityResponseDto> communityResponseDtos = new ArrayList<>();
 
-        for (CommunityMember member : members){
+        for (CommunityMember member : members) {
             Community community = member.getCommunity();
             communityResponseDtos.add(community.toCommunityResponseDto());
         }
