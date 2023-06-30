@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 
+import static com.example.CommunityServer.entity.Role.USER;
+
 @RestController
 @RequestMapping("/community")
 @RequiredArgsConstructor
@@ -33,8 +35,18 @@ public class CommunityController {
         return responseService.getSuccessResponse(communityService.createCommunity(userId, file, communityName));
     }
 //    TODO 조회
+    @GetMapping("/comnunities")
+    public CommonResponse<Object> getAllCommunity(HttpServletRequest request){
+        Long userId = Long.parseLong(request.getHeader("id"));
+        return responseService.getSuccessResponse(communityService.getAllCommunity(userId));
+    }
 //    TODO 업데이트
 //    TODO 삭제
 //    TODO 가입
+    @GetMapping("/join/{communityId}")
+    public CommonResponse<Object> testJoin(HttpServletRequest request, @PathVariable("communityId") Long communityId) {
+        Long userId = Long.parseLong(request.getHeader("id"));
+        return responseService.getSuccessResponse(communityService.addCommunityMember(userId, communityId, USER));
+    }
 //    TODO 초대
 }
