@@ -23,7 +23,7 @@
 ### Frontend
 - TypeScript
 - React
-- CSS module
+- Styled Component
 
 ### Backend
 - Java 11
