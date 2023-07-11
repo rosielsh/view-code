@@ -3,6 +3,14 @@ import LogoSrc from '../assets/VC_logo.png';
 import GithubLogoSrc from '../assets/VC_github_img.png';
 
 function StartPage() {
+  const handleLogin = () => {
+    /**
+     * todo: 추후 백 배포 주소로 변경
+     */
+
+    window.location.href = 'http://localhost:8080/oauth2/authorization/github';
+  };
+
   return (
     <StyledLoginPage>
       <Container>
@@ -17,7 +25,7 @@ function StartPage() {
         <LogoText fontSize={15} color="white" border={300}>
           계정이 없으신가요?
         </LogoText>
-        <LoginButton>
+        <LoginButton onClick={handleLogin}>
           <LogoImg src={GithubLogoSrc} width={30} margin="0 10px 0 0" />
           <LogoText fontSize={20} color="rgb(256, 256, 256, 0.8)" border={300}>
             Continue with Github
