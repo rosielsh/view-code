@@ -1,12 +1,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from 'pages/LoginPage';
+import Start from 'pages/StartPage';
+import Main from 'pages/MainPage';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/start" element={<Start />} />
+          <Route path="/" element={<Main />} />
         </Routes>
       </BrowserRouter>
     </div>
